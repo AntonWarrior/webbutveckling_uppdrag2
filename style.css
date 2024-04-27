@@ -1,0 +1,243 @@
+/* Grundinställningar för kroppen inklusive bakgrundsfärg och typsnitt */
+body {
+	margin: 0;
+	overflow-x: hidden;
+	background: whitesmoke;
+}
+/* Container som centrerar och formaterar huvudinnehållet */
+.container{ 
+  background-color: whitesmoke; 
+  color: #7f8c97;
+  max-width: 1224px;
+	height: 100%;
+	text-align: center;
+	margin: 0 auto;
+	padding: 2em;
+	position: relative;
+}
+ 
+.main-title{
+	color: #4e4e4e;
+	font-weight: 600;
+	font-size: 4em;
+	margin-bottom: .3em;
+  font-family: "Dosis";
+}
+/* Tidslinje design och positionering */
+ .timeline {
+	  position: relative;
+	  width: auto;
+	  margin: 0 auto;
+	  margin-top: 5em;
+   padding-bottom: 2em;
+   padding-left: 0;
+   overflow: hidden;
+	}
+    
+/* Vertikal linje som representerar tidslinjens ryggrad */
+	.timeline:before {
+	  position: absolute;
+	  left: 50%;
+	  top: 0;
+	  content: ' ';
+	  display: block;
+	  width: 4px;
+	  height: 100%;
+	  margin-left: -3px;
+	  background: #d7e4ed;
+	  z-index: 5;
+    animation: moveline 8s linear forwards;
+	}
+ 
+/* Styling och positionering för riktningarna vänster och höger på tidslinjen */
+	.dir-l, .dir-r{ 
+		position: relative; 
+		width: 40%; 
+		padding: 1.5em 1em; 
+		background: #fff; 
+		box-shadow: 0 3px 0 #d7e4ed; 
+		margin-top: 0; 
+		margin-bottom: 1.5em;
+	}
+/* Styling för rubriker inom tidslinjen */
+.timeline h1{
+	font-size: 1.6em;
+  color: #4B878D;
+	width: 90%;
+  margin-top: 0;
+  font-family: "Dosis";
+}
+ /* Grundläggande textstyling för blocken inom tidslinjen */
+.timeline p{ 
+  letter-spacing: .5px;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  margin: .5em;
+  margin-top: 1.5em;
+  font-family: "Dosis";
+}
+ /* Rundade bilder inom tidslinjen */
+.timeline img{
+	border-radius: 50%;
+}
+ /* Position och storlek för ikoner inom tidslinjen */
+.timeline-icon{
+	position: absolute;
+	top: 1em;
+	width: 2.5em;
+	height: 2.5em;
+	right: 0;
+	border-radius: 50%;
+	z-index: 10;
+}
+ /*--timeline href --*/
+.timeline a{
+	color: #38666a;
+	margin-left: .3em;
+} 
+/* Animationer som används för att visa linjer och innehåll på tidslinjen */
+@keyframes moveline{
+  0%{
+    height: 1;
+  }
+  100%{
+    height: 87%;
+  }
+}
+@keyframes movedown{
+  0%{
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
+ /* Styling för tidslinjeblockens riktning till vänster */
+	.dir-l{ 
+    float: left;
+    animation: movedown 2s linear forwards; 
+  }
+  /* Skapar för vänstra tidslinjeblocken en pil till blocket */
+	.dir-l:before{
+		content: "";
+	  display: inline-block;
+	  vertical-align: middle;
+	  width: 0; 
+	  height: 0; 
+	  position: absolute;
+	  right: -.95em;
+	  top: 1em;
+		border-top: 17px solid transparent;
+		border-bottom: 17px solid transparent; 
+		border-left: 15px solid #fff; 
+	}
+ 
+	.dir-r{ 
+    float: right;
+    animation: movedown 2s linear forwards; 
+  }
+
+	.dir-r:before{
+		content: "";
+	  display: inline-block;
+	  vertical-align: middle;
+	  width: 0; 
+	  height: 0; 
+	  position: absolute;
+	  left: -.9em;
+	  top: 1em;
+		border-top: 17px solid transparent;
+		border-bottom: 17px solid transparent; 
+		border-right: 15px solid #fff; 
+	}
+ 
+	.timeline-icon{
+		position: absolute;
+		top: -.2em;
+		width: 60px;
+		height: 60px;
+		left: 50%;
+		margin-left: -30px;
+		box-shadow:  0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0), 0 0 0 5px rgba(0, 0, 0, 0.15);
+	}
+ 
+	.timeline-blocks{
+		display: block;
+		height: auto;
+		padding: 1em 0;
+		position: relative;
+		overflow: hidden;
+	}
+ 
+	.timeline img{
+		border-radius: 50%;
+    width: 100%;
+	}
+ 
+	.timeline a{
+		color: #38666a;
+		margin-left: .3em;
+	} 
+ /* Grundinställningar för datummarkörerna */
+	.timeline-blocks .date-l, .timeline-blocks .date-r{
+		position: absolute;
+		top: 2em;
+		right: 58%;
+		font-size: 1em;
+    animation: movedown 2s linear forwards;
+	}
+ /* Positionering av datum till höger */
+	.timeline-blocks .date-r{ left: 54%; right: auto;}
+ /* Effekt för länkar när de hovras över */
+	.timeline-blocks a:hover{ color: #4B878D; }
+  /* Styling för sekelskiftesmarkeringar */
+  .century-l{
+    position: absolute;
+    left: 34%;
+    top: 0;
+    font-size: 1.3em;
+    animation: movedown 2s linear forwards;
+}
+.century-r{
+  position: right;
+  top: 0em;
+  font-size: 1.3em;
+  animation: movedown 2s linear forwards;
+}
+/* Döljer kryssrutan för att visa innehåll på tidslinjen */
+  .accordion-toggle-checkbox {
+    display: none; /* Hide the checkbox */
+  }
+  /* Grundinställningar för att visa accordion sektioner */
+  .accordion-toggle {
+    cursor: pointer;/* Ändrar muspekaren till en pekare */
+    display: block;
+    margin-bottom: 10px; /* Utseende */
+  }
+  /* Grundinställningar för vikbara sektioners innehåll */
+  .accordion-content {
+	text-align: left;
+	color: #050505;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out; /* Gör övergången smidig */
+    animation: movedown 0.5s ease-out forwards; /* Animation när innehållet blir synligt */
+  }
+  /* Justerar höjden för innehållet när kryssrutan är markerad */
+  .accordion-toggle-checkbox:checked + .accordion-content {
+    max-height: 500px; /* Anpassar max-höjden beroende på innehållets storlek */
+  }
+  /* Styling för informationsrutor */
+.info-box {
+	background-color: white; 
+	color: #4e4e4e; 
+	width: 100%;
+	font-size: 16px; 
+	padding: 1em;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+	margin: 1em 0; 
+	line-height: 1.2; /* Enhanced line-height for readability */
+}
